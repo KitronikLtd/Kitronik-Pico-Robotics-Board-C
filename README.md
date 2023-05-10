@@ -68,5 +68,8 @@ where
 <br/>
 
 # Troubleshooting
-If the code is run without the Pico Robotics board connected, or  if the board is not powered up it is likely that it will throw an OS Error (usually OS Error 5).
-This is because it tries to communicate with an I2C device which is not responding.
+If the code is run without the Pico Robotics board connected, or if the board is not powered up it is likely that the I2C functions in the library will return one of the following errors:
+- PICO_ERROR_GENERIC if the given address was not acknowledged, or there was no device present,
+- Or PICO_ERROR_TIMEOUT if a has timeout occurred.
+
+This is because the Pico tries to communicate with an I2C device which is not responding.
